@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSALFA — OSIS SMPI Al-Fakhir</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="light-mode" id="body">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">OSALFA</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active" data-tab="home">Home</a></li>
+      <li><a href="#profile" class="nav-link" data-tab="profile">Profile</a></li>
+      <li><a href="#program" class="nav-link" data-tab="program">Program</a></li>
+      <li><a href="#news" class="nav-link" data-tab="news">News</a></li>
+      <li><a href="#gallery" class="nav-link" data-tab="gallery">Gallery</a></li>
+      <li><a href="#contact" class="nav-link" data-tab="contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+      </button>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">OSALFA</div>
+      <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+      <div class="loader-text" id="loaderText">Initializing...</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main">
+
+    <!-- ==================== HOME ==================== -->
+    <section class="tab-section active" id="home">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">OSIS SMPI Al-Fakhir</div>
+          <h1 class="hero-title">
+            <span class="glitch" data-text="OSALFA">OSALFA</span>
+          </h1>
+          <p class="hero-subtitle">Organisasi Siswa Intra Sekolah<br/>yang Berkarakter, Berprestasi, dan Berakhlak</p>
+          <div class="hero-cta">
+            <button class="btn-primary" onclick="switchTab('profile')">Kenali Kami</button>
+            <button class="btn-secondary" onclick="switchTab('program')">Program Kerja</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <div class="orbit-ring ring-3"></div>
+          <div class="hero-badge">
+            <span class="badge-icon">★</span>
+            <span>Generasi Emas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sambutan Ketua -->
+      <div class="section-block fade-in">
+        <div class="section-label">Sambutan</div>
+        <h2 class="section-title">Pesan Ketua OSIS</h2>
+        <div class="greeting-card">
+          <div class="greeting-avatar">
+            <div class="avatar-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="avatar-info">
+              <strong>Ahmad Fauzan</strong>
+              <span>Ketua OSALFA 2024/2025</span>
+            </div>
+          </div>
+          <div class="greeting-text">
+            <div class="quote-mark">"</div>
+            <p>Assalamu'alaikum Warahmatullahi Wabarakatuh. Segala puji bagi Allah SWT atas segala nikmat yang telah diberikan kepada kita semua. Dengan penuh rasa syukur dan semangat yang membara, saya mewakili seluruh pengurus OSALFA mengucapkan selamat datang di platform digital kami.</p>
+            <p>OSALFA hadir sebagai wadah bagi seluruh siswa SMPI Al-Fakhir untuk berkreasi, berinovasi, dan berkontribusi nyata bagi sekolah dan masyarakat. Kami berkomitmen untuk menciptakan lingkungan sekolah yang aktif, harmonis, dan penuh prestasi.</p>
+            <p>Mari bersama kita wujudkan visi besar: <em>Generasi yang Berkarakter, Berprestasi, dan Berakhlak Mulia.</em></p>
+            <div class="quote-mark close">"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profil Singkat -->
+      <div class="section-block fade-in">
+        <div class="section-label">Tentang Kami</div>
+        <h2 class="section-title">Profil Singkat OSALFA</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-school"></i></div>
+            <h3>Siapa Kami</h3>
+            <p>OSALFA adalah Organisasi Siswa Intra Sekolah SMPI Al-Fakhir yang berdiri sebagai lembaga resmi yang menaungi seluruh kegiatan kesiswaan di sekolah.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-star"></i></div>
+            <h3>Misi Kami</h3>
+            <p>Membina siswa agar memiliki karakter unggul, semangat berprestasi, dan akhlak mulia sesuai nilai-nilai Islam dan budaya bangsa Indonesia.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-users"></i></div>
+            <h3>Keanggotaan</h3>
+            <p>Seluruh siswa SMPI Al-Fakhir adalah anggota OSALFA. Pengurus dipilih melalui mekanisme musyawarah dan pemilihan yang demokratis setiap tahun ajaran.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-trophy"></i></div>
+            <h3>Pencapaian</h3>
+            <p>OSALFA telah mengukir berbagai prestasi baik di bidang akademik, seni, olahraga, maupun keagamaan di tingkat kota, provinsi, hingga nasional.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jajaran Organisasi -->
+      <div class="section-block fade-in">
+        <div class="section-label">Kepengurusan</div>
+        <h2 class="section-title">Jajaran Organisasi</h2>
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-photo">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face" alt="Ketua OSIS" />
+              <div class="org-badge">Ketua</div>
+            </div>
+            <h4>Ahmad Fauzan</h4>
+            <span>Ketua OSALFA</span>
+          </div>
+          <div class="org-card">
+            <div class="org-photo">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b1e5bd73?w=200&h=200&fit=crop&crop=face" alt="Wakil Ketua" />
+              <div class="org-badge">Wakil</div>
+            </div>
+            <h4>Siti Maryam</h4>
+            <span>Wakil Ketua</span>
+          </div>
+          <div class="org-card">
+            <div class="org-photo">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Sekretaris" />
+              <div class="org-badge">Sekretaris</div>
+            </div>
+            <h4>Rizki Pratama</h4>
+            <span>Sekretaris</span>
+          </div>
+          <div class="org-card">
+            <div class="org-photo">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face" alt="Bendahara" />
+              <div class="org-badge">Bendahara</div>
+            </div>
+            <h4>Nurul Hidayah</h4>
+            <span>Bendahara</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== PROFILE ==================== -->
+    <section class="tab-section" id="profile">
+      <div class="page-header">
+        <div class="section-label">Tentang OSALFA</div>
+        <h1 class="page-title">Profil Lengkap</h1>
+      </div>
+
+      <!-- Profil Lengkap -->
+      <div class="section-block fade-in">
+        <div class="profile-intro">
+          <div class="profile-badge-big">
+            <span>⬡</span>
+            <div>
+              <strong>OSALFA</strong>
+              <small>OSIS SMPI Al-Fakhir</small>
+            </div>
+          </div>
+          <p>OSALFA (OSIS SMPI Al-Fakhir) merupakan organisasi intra sekolah yang resmi berdiri di bawah naungan SMPI Al-Fakhir. Organisasi ini berperan sebagai koordinator seluruh kegiatan kesiswaan, menjadi jembatan antara siswa dengan pihak sekolah, serta menjadi motor penggerak berbagai program unggulan yang bertujuan membentuk generasi muda yang berakhlak mulia, cerdas, dan berdaya saing tinggi.</p>
+          <p>Dengan semangat <em>"Bersatu, Berkarya, Berprestasi"</em>, OSALFA hadir untuk memastikan setiap siswa mendapatkan kesempatan yang sama untuk berkembang dan berprestasi di berbagai bidang.</p>
+        </div>
+      </div>
+
+      <!-- Visi -->
+      <div class="section-block fade-in">
+        <div class="vision-card">
+          <div class="vision-icon"><i class="fas fa-eye"></i></div>
+          <div>
+            <h2>Visi</h2>
+            <p class="vision-text">"Mewujudkan OSALFA sebagai organisasi kesiswaan yang aktif, kreatif, dan berprestasi, berlandaskan iman, ilmu, dan akhlak mulia dalam rangka membentuk generasi penerus bangsa yang berkarakter Islami."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Misi -->
+      <div class="section-block fade-in">
+        <div class="section-label">Arah Gerak</div>
+        <h2 class="section-title">Misi Organisasi</h2>
+        <div class="misi-list">
+          <div class="misi-item"><span class="misi-num">01</span><p>Meningkatkan ketakwaan kepada Allah SWT melalui kegiatan keagamaan yang terprogram dan berkelanjutan.</p></div>
+          <div class="misi-item"><span class="misi-num">02</span><p>Mengembangkan potensi, kreativitas, dan bakat siswa melalui berbagai kegiatan ekstrakurikuler dan lomba.</p></div>
+          <div class="misi-item"><span class="misi-num">03</span><p>Membangun karakter siswa yang disiplin, jujur, bertanggung jawab, dan peduli terhadap sesama.</p></div>
+          <div class="misi-item"><span class="misi-num">04</span><p>Mempererat tali persaudaraan dan kebersamaan antarsiswa dalam lingkungan sekolah yang harmonis.</p></div>
+          <div class="misi-item"><span class="misi-num">05</span><p>Menjalin kerja sama yang baik dengan seluruh warga sekolah dan stakeholder dalam rangka mencapai tujuan bersama.</p></div>
+        </div>
+      </div>
+
+      <!-- Tujuan -->
+      <div class="section-block fade-in">
+        <div class="section-label">Sasaran</div>
+        <h2 class="section-title">Tujuan OSALFA</h2>
+        <div class="tujuan-grid">
+          <div class="tujuan-card"><i class="fas fa-mosque"></i><h4>Religius</h4><p>Membentuk siswa yang beriman, bertakwa, dan berakhlak mulia sesuai ajaran Islam.</p></div>
+          <div class="tujuan-card"><i class="fas fa-book-open"></i><h4>Akademis</h4><p>Mendorong siswa untuk berprestasi di bidang akademik dan mengoptimalkan potensi intelektual.</p></div>
+          <div class="tujuan-card"><i class="fas fa-palette"></i><h4>Kreatif</h4><p>Mengembangkan kreativitas dan seni budaya siswa sebagai ekspresi diri yang positif.</p></div>
+          <div class="tujuan-card"><i class="fas fa-running"></i><h4>Sportif</h4><p>Membudayakan hidup sehat dan sportif melalui kegiatan olahraga dan kompetisi yang sehat.</p></div>
+          <div class="tujuan-card"><i class="fas fa-handshake"></i><h4>Sosial</h4><p>Menumbuhkan kepedulian sosial dan semangat gotong royong dalam kehidupan bermasyarakat.</p></div>
+          <div class="tujuan-card"><i class="fas fa-lightbulb"></i><h4>Inovatif</h4><p>Mendorong inovasi dan kreasi siswa dalam menghadapi tantangan era modern dan global.</p></div>
+        </div>
+      </div>
+
+      <!-- Divisi -->
+      <div class="section-block fade-in">
+        <div class="section-label">Struktur</div>
+        <h2 class="section-title">Divisi OSALFA</h2>
+        <div class="divisi-list">
+          <div class="divisi-card">
+            <div class="divisi-header bph"><i class="fas fa-sitemap"></i><h3>BPH</h3></div>
+            <p class="divisi-full">Badan Pengurus Harian</p>
+            <ul>
+              <li>Faiqah Kamilah Ramadhani – Ketua</li>
+              <li>Fatimah Azzarhra – Wakil Ketua</li>
+              <li>Azizah Aurellia Ramadhani Susilo – Sekretaris</li>
+              <li>Farasy Naila Ramadhani – Bendahara</li>
+            </ul>
+          </div>
+          <div class="divisi-card">
+            <div class="divisi-header humas"><i class="fas fa-bullhorn"></i><h3>Humas</h3></div>
+            <p class="divisi-full">Divisi Dokumentasi</p>
+            <ul>
+              <li>Alya Salsabila Amani – Koordinator</li>
+              <li>Zhifani Lhatisya – Anggota</li>
+              <li>Garneta Alviana Zahran – Anggota</li>
+              <li>Nada Rumaisa Hapsari – Anggota</li>
+              <li>Gendis Keenan Rinjani  – Anggota</li>
+              <li>Syafira Daffania Almira Putri  – Anggota</li>
+              <li>Leonita Finola Agustina  – Anggota</li>
+              <li>Dzakira Nurul Matine  – Anggota</li>
+            </ul>
+          </div>
+          <div class="divisi-card">
+            <div class="divisi-header pendidikan"><i class="fas fa-graduation-cap"></i><h3>Akademik</h3></div>
+            <p class="divisi-full">Divisi Akademik</p>
+            <ul>
+              <li>Syifa Anindita  – Koordinator</li>
+              <li>Azahra Habibatul Kamilah  – Anggota</li>
+              <li>Ghania Zahra Ramadhani  – Anggota</li>
+              <li>Syifa Nisrina Putri Wahyudi – Anggota</li>
+              <li>Zavier Alinsky Gesvinder Rao  – Anggota</li>
+              <li>Muhammad Zidan Arafat  – Anggota</li>
+            </ul>
+          </div>
+          <div class="divisi-card">
+            <div class="divisi-header orseni"><i class="fas fa-music"></i><h3>Orseni</h3></div>
+            <p class="divisi-full">Olahraga dan Seni</p>
+            <ul>
+              <li>Muhammad Ridwan  – Koordinator</li>
+              <li>Nadia Aiyra Putri  – Anggota</li>
+              <li>Muhammad Fathan Sofyansyah  – Anggota</li>
+              <li>Gisella Anas Tasya  – Anggota</li>
+              <li>Cinta Azzahra Ristantry  – Anggota</li>
+              <li>Chantika Ananda Putri  – Anggota</li>
+              <li>Mackaarle Haikal Hail  – Anggota</li>
+              <li>Muhammad Athallah Raqilla  – Anggota</li>
+            </ul>
+          </div>
+          <div class="divisi-card">
+            <div class="divisi-header keagamaan"><i class="fas fa-star-and-crescent"></i><h3>Keagamaan</h3></div>
+            <p class="divisi-full">Divisi Agama</p>
+            <ul>
+              <li>Bayu Aditya Rifai - Koordinator</li>
+              <li>Shakila Novita  – Anggota</li>
+              <li>Khansa Fadlika Awlya Ansar  – Anggota</li>
+              <li>Syifa Fatimatuzahra Quratul’ayun  – Anggota</li>
+              <li>Azkia Ramadhanti  – Anggota</li>
+              <li>Muhammad Arsy Farazy Rasyid  – Anggota</li>
+              <li>Muhammad Zidan Baihaqi  – Anggota</li>
+              <li>Alia Dina Syahira  – Anggota</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROGRAM ==================== -->
+    <section class="tab-section" id="program">
+      <div class="page-header">
+        <div class="section-label">Rencana Aksi</div>
+        <h1 class="page-title">Program Kerja</h1>
+      </div>
+
+      <div class="program-tabs">
+        <button class="prog-tab active" data-prog="bph-prog">BPH</button>
+        <button class="prog-tab" data-prog="humas-prog">Humas</button>
+        <button class="prog-tab" data-prog="pendidikan-prog">Pendidikan</button>
+        <button class="prog-tab" data-prog="orseni-prog">Orseni</button>
+        <button class="prog-tab" data-prog="keagamaan-prog">Keagamaan</button>
+      </div>
+
+      <div class="prog-content active" id="bph-prog">
+        <div class="prog-header"><div class="prog-icon bph"><i class="fas fa-sitemap"></i></div><div><h2>BPH — Badan Pengurus Harian</h2><p>Koordinasi dan manajemen seluruh kegiatan organisasi</p></div></div>
+        <div class="progker-grid">
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Rapat Pengurus Mingguan</h4><p>Pertemuan rutin setiap Senin untuk evaluasi dan perencanaan program kerja.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Setiap Senin</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>OSALFA Leadership Camp</h4><p>Pelatihan kepemimpinan dan manajemen organisasi bagi seluruh pengurus.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Semester Ganjil</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Laporan Keuangan Bulanan</h4><p>Penyusunan dan penyampaian laporan keuangan organisasi setiap bulan.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Bulanan</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Musyawarah Besar OSALFA</h4><p>Forum musyawarah agung untuk evaluasi tahunan dan pemilihan pengurus baru.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Akhir Tahun</div></div>
+          <div class="progker-card"><span class="pk-status insidental">Insidental</span><h4>Koordinasi dengan Pihak Sekolah</h4><p>Pertemuan berkala dengan kepala sekolah dan guru pembimbing OSIS.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Kondisional</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Peringatan HUT OSALFA</h4><p>Rangkaian acara peringatan hari ulang tahun organisasi dengan berbagai perlombaan dan pentas seni.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Tahunan</div></div>
+        </div>
+      </div>
+
+      <div class="prog-content" id="humas-prog">
+        <div class="prog-header"><div class="prog-icon humas"><i class="fas fa-bullhorn"></i></div><div><h2>Humas — Hubungan Masyarakat</h2><p>Komunikasi dan hubungan internal-eksternal organisasi</p></div></div>
+        <div class="progker-grid">
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Pengelolaan Media Sosial</h4><p>Pembuatan konten dan pengelolaan akun Instagram, TikTok, dan YouTube OSALFA.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Harian</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>OSALFA Speaks</h4><p>Program podcast/talkshow rutin membahas isu pendidikan, remaja, dan organisasi.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Bulanan</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Mading Digital & Fisik</h4><p>Pembuatan majalah dinding informatif tentang kegiatan sekolah dan OSALFA.</p><div class="pk-meta"><i class="fas fa-calendar"></i> 2 Minggu Sekali</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Kunjungan Sekolah Lain</h4><p>Studi banding dan kunjungan persahabatan ke OSIS sekolah lain untuk bertukar pengalaman.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Semester Genap</div></div>
+          <div class="progker-card"><span class="pk-status insidental">Insidental</span><h4>Press Release Kegiatan</h4><p>Penulisan dan penyebaran siaran pers untuk setiap kegiatan besar OSALFA.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Per Kegiatan</div></div>
+        </div>
+      </div>
+
+      <div class="prog-content" id="pendidikan-prog">
+        <div class="prog-header"><div class="prog-icon pendidikan"><i class="fas fa-graduation-cap"></i></div><div><h2>Pendidikan</h2><p>Peningkatan kualitas akademik dan literasi siswa</p></div></div>
+        <div class="progker-grid">
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>OSALFA Smart Competition</h4><p>Olimpiade pengetahuan umum, sains, dan matematika antar kelas di SMPI Al-Fakhir.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Semester Genap</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Kelas Tutor Sebaya</h4><p>Program bimbingan belajar antarsiswa yang difasilitasi oleh OSALFA untuk mata pelajaran sulit.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Mingguan</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Gerakan Literasi Sekolah</h4><p>Program membaca 15 menit sebelum pelajaran dan kunjungan perpustakaan terjadwal.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Harian</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Bedah Buku Bulanan</h4><p>Diskusi dan ulasan buku pilihan bersama siswa untuk meningkatkan minat baca.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Bulanan</div></div>
+          <div class="progker-card"><span class="pk-status insidental">Insidental</span><h4>Persiapan Olimpiade Eksternal</h4><p>Pembinaan khusus siswa yang akan mewakili sekolah dalam olimpiade tingkat kota/provinsi.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Kondisional</div></div>
+        </div>
+      </div>
+
+      <div class="prog-content" id="orseni-prog">
+        <div class="prog-header"><div class="prog-icon orseni"><i class="fas fa-music"></i></div><div><h2>Olahraga & Seni</h2><p>Pengembangan bakat olahraga dan seni budaya siswa</p></div></div>
+        <div class="progker-grid">
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>OSALFA Cup</h4><p>Turnamen olahraga antar kelas meliputi futsal, badminton, tenis meja, dan voli.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Semester Ganjil</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Pentas Seni Tahunan</h4><p>Pagelaran seni budaya meliputi tari, musik, drama, dan pameran karya seni siswa.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Semester Genap</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Senam Bersama</h4><p>Kegiatan senam pagi bersama setiap Jumat untuk menjaga kebugaran dan kebersamaan.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Setiap Jumat</div></div>
+          <div class="progker-card"><span class="pk-status insidental">Insidental</span><h4>Lomba Seni Islami</h4><p>Perlombaan kaligrafi, nasyid, dan tilawah dalam rangka hari-hari besar Islam.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Hari Besar Islam</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Workshop Seni Kreatif</h4><p>Pelatihan melukis, fotografi, dan desain grafis oleh seniman dan fotografer tamu.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Semester Genap</div></div>
+        </div>
+      </div>
+
+      <div class="prog-content" id="keagamaan-prog">
+        <div class="prog-header"><div class="prog-icon keagamaan"><i class="fas fa-star-and-crescent"></i></div><div><h2>Keagamaan</h2><p>Pembinaan spiritual dan akhlak siswa berbasis Islam</p></div></div>
+        <div class="progker-grid">
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Shalat Dhuha Berjamaah</h4><p>Pembiasaan shalat dhuha berjamaah setiap pagi sebelum kegiatan belajar dimulai.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Harian</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>Pesantren Kilat Ramadhan</h4><p>Program intensif selama bulan Ramadhan meliputi kajian, tadarus, dan praktek ibadah.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Ramadhan</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Kajian Jumat</h4><p>Kajian keislaman rutin setiap Jumat pagi dengan tema-tema aktual dan relevan.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Setiap Jumat</div></div>
+          <div class="progker-card"><span class="pk-status unggulan">Unggulan</span><h4>OSALFA Peduli</h4><p>Kegiatan bakti sosial, santunan anak yatim, dan donasi untuk masyarakat sekitar.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Triwulan</div></div>
+          <div class="progker-card"><span class="pk-status insidental">Insidental</span><h4>Peringatan Hari Besar Islam</h4><p>Rangkaian acara peringatan Maulid Nabi, Isra Mi'raj, Tahun Baru Hijriyah, dll.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Sesuai Kalender Islam</div></div>
+          <div class="progker-card"><span class="pk-status rutin">Rutin</span><h4>Hafalan Juz 30</h4><p>Program tahfizh juz 30 dengan target hafal 30 surat pilihan selama satu tahun ajaran.</p><div class="pk-meta"><i class="fas fa-calendar"></i> Mingguan</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NEWS ==================== -->
+    <section class="tab-section" id="news">
+      <div class="page-header">
+        <div class="section-label">Informasi Terkini</div>
+        <h1 class="page-title">Berita & Pengumuman</h1>
+      </div>
+
+      <!-- Berita Terkini -->
+      <div class="section-block fade-in">
+        <div class="section-label">Terbaru</div>
+        <h2 class="section-title">Berita Terkini</h2>
+        <div class="news-grid">
+          <div class="news-card featured">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=500&h=300&fit=crop" alt="Berita" /></div>
+            <div class="news-body">
+              <span class="news-cat">Kegiatan</span>
+              <h3>OSALFA Sukses Gelar Leadership Camp 2025</h3>
+              <p>Seluruh pengurus OSALFA mengikuti pelatihan kepemimpinan selama 2 hari di Pusat Pelatihan Kepemimpinan Remaja. Kegiatan diisi dengan materi leadership, team building, dan simulasi organisasi.</p>
+              <div class="news-foot"><span><i class="fas fa-calendar"></i> 10 Juni 2025</span><span><i class="fas fa-user"></i> Tim Humas</span></div>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=220&fit=crop" alt="Berita" /></div>
+            <div class="news-body">
+              <span class="news-cat">Akademik</span>
+              <h3>Smart Competition 2025 Resmi Dibuka</h3>
+              <p>OSALFA membuka pendaftaran Olimpiade Smart Competition yang akan diikuti seluruh kelas VII, VIII, dan IX.</p>
+              <div class="news-foot"><span><i class="fas fa-calendar"></i> 5 Juni 2025</span><span><i class="fas fa-user"></i> Divisi Pendidikan</span></div>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=220&fit=crop" alt="Berita" /></div>
+            <div class="news-body">
+              <span class="news-cat">Olahraga</span>
+              <h3>OSALFA Cup Futsal: Kelas IX-A Jadi Juara</h3>
+              <p>Turnamen futsal antar kelas berlangsung meriah selama tiga hari. Kelas IX-A berhasil keluar sebagai juara setelah mengalahkan VIII-B di final.</p>
+              <div class="news-foot"><span><i class="fas fa-calendar"></i> 1 Juni 2025</span><span><i class="fas fa-user"></i> Divisi Orseni</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pengumuman Resmi -->
+      <div class="section-block fade-in">
+        <div class="section-label">Resmi</div>
+        <h2 class="section-title">Pengumuman</h2>
+        <div class="announcement-list">
+          <div class="ann-item">
+            <div class="ann-icon new"><i class="fas fa-bell"></i><span>NEW</span></div>
+            <div class="ann-body">
+              <h4>Pendaftaran Pengurus Baru OSALFA 2025/2026</h4>
+              <p>Pendaftaran calon pengurus OSALFA periode 2025/2026 dibuka mulai 15 Juni s/d 30 Juni 2025. Formulir tersedia di sekretariat OSIS.</p>
+              <span class="ann-date">15 Juni 2025</span>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-icon"><i class="fas fa-info-circle"></i></div>
+            <div class="ann-body">
+              <h4>Jadwal Pentas Seni Tahunan OSALFA 2025</h4>
+              <p>Pentas Seni Tahunan akan dilaksanakan pada 20 Juli 2025 di Aula SMPI Al-Fakhir. Semua siswa wajib hadir dan berpartisipasi.</p>
+              <span class="ann-date">10 Juni 2025</span>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-icon"><i class="fas fa-info-circle"></i></div>
+            <div class="ann-body">
+              <h4>Pesantren Kilat Ramadhan 1447 H</h4>
+              <p>Program Pesantren Kilat akan dimulai pada hari pertama Ramadhan. Seluruh siswa diwajibkan mengikuti kegiatan ini.</p>
+              <span class="ann-date">1 Juni 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prestasi -->
+      <div class="section-block fade-in">
+        <div class="section-label">Kebanggaan</div>
+        <h2 class="section-title">Prestasi Siswa</h2>
+        <div class="prestasi-grid">
+          <div class="prestasi-card gold">
+            <div class="prestasi-medal">🥇</div>
+            <h4>Juara 1 Olimpiade Matematika Tingkat Kota</h4>
+            <p>Muhammad Rafif — Kelas IX-A</p>
+            <span>Mei 2025</span>
+          </div>
+          <div class="prestasi-card silver">
+            <div class="prestasi-medal">🥈</div>
+            <h4>Juara 2 Lomba Debat Bahasa Inggris Tingkat Provinsi</h4>
+            <p>Zahra Aulia & Ihsan Ramadhan — Kelas VIII-B</p>
+            <span>April 2025</span>
+          </div>
+          <div class="prestasi-card bronze">
+            <div class="prestasi-medal">🥉</div>
+            <h4>Juara 3 Lomba Kaligrafi Tingkat Kota</h4>
+            <p>Aisyah Putri — Kelas VII-C</p>
+            <span>Maret 2025</span>
+          </div>
+          <div class="prestasi-card gold">
+            <div class="prestasi-medal">🏆</div>
+            <h4>Juara 1 Nasyid Festival Islam Tingkat Kota</h4>
+            <p>Tim Nasyid SMPI Al-Fakhir</p>
+            <span>Februari 2025</span>
+          </div>
+          <div class="prestasi-card silver">
+            <div class="prestasi-medal">🎖️</div>
+            <h4>Best Presenter OSN Biologi Tingkat Kecamatan</h4>
+            <p>Nabila Syahputri — Kelas VIII-A</p>
+            <span>Januari 2025</span>
+          </div>
+          <div class="prestasi-card bronze">
+            <div class="prestasi-medal">🏅</div>
+            <h4>Juara 3 Futsal Piala Wali Kota</h4>
+            <p>Tim Futsal SMPI Al-Fakhir</p>
+            <span>Desember 2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section class="tab-section" id="gallery">
+      <div class="page-header">
+        <div class="section-label">Dokumentasi</div>
+        <h1 class="page-title">Galeri Kegiatan</h1>
+      </div>
+
+      <!-- Foto -->
+      <div class="section-block fade-in">
+        <div class="section-label">Foto</div>
+        <h2 class="section-title">Dokumentasi Foto</h2>
+        <div class="gallery-filter">
+          <button class="gal-btn active" data-filter="all">Semua</button>
+          <button class="gal-btn" data-filter="kegiatan">Kegiatan</button>
+          <button class="gal-btn" data-filter="prestasi">Prestasi</button>
+          <button class="gal-btn" data-filter="seni">Seni & Budaya</button>
+        </div>
+        <div class="photo-grid" id="photoGrid">
+          <div class="photo-item" data-cat="kegiatan"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop" alt="Kegiatan 1" /><div class="photo-overlay"><span>Leadership Camp 2025</span></div></div>
+          <div class="photo-item" data-cat="seni"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=300&fit=crop" alt="Seni" /><div class="photo-overlay"><span>Pentas Seni Tahunan</span></div></div>
+          <div class="photo-item" data-cat="prestasi"><img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=400&h=300&fit=crop" alt="Prestasi" /><div class="photo-overlay"><span>Olimpiade Matematika</span></div></div>
+          <div class="photo-item" data-cat="kegiatan"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop" alt="Kegiatan 2" /><div class="photo-overlay"><span>OSALFA Cup 2025</span></div></div>
+          <div class="photo-item" data-cat="seni"><img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&h=300&fit=crop" alt="Seni 2" /><div class="photo-overlay"><span>Workshop Seni Kreatif</span></div></div>
+          <div class="photo-item" data-cat="kegiatan"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=300&fit=crop" alt="Kegiatan 3" /><div class="photo-overlay"><span>Pesantren Kilat</span></div></div>
+          <div class="photo-item" data-cat="prestasi"><img src="https://images.unsplash.com/photo-1551840605-3bf2b9de2af1?w=400&h=300&fit=crop" alt="Prestasi 2" /><div class="photo-overlay"><span>Debat Bahasa Inggris</span></div></div>
+          <div class="photo-item" data-cat="kegiatan"><img src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=400&h=300&fit=crop" alt="Kegiatan 4" /><div class="photo-overlay"><span>Bakti Sosial OSALFA</span></div></div>
+          <div class="photo-item" data-cat="seni"><img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=300&fit=crop" alt="Seni 3" /><div class="photo-overlay"><span>Festival Nasyid</span></div></div>
+        </div>
+      </div>
+
+      <!-- Video -->
+      <div class="section-block fade-in">
+        <div class="section-label">Video</div>
+        <h2 class="section-title">Dokumentasi Video</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              </video>
+              <div class="video-info"><h4>Highlight OSALFA Cup 2025</h4><span><i class="fas fa-play"></i> Autoplay</span></div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline>
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+              </video>
+              <div class="video-info"><h4>Pentas Seni Tahunan 2025</h4><span><i class="fas fa-play"></i> Autoplay</span></div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              </video>
+              <div class="video-info"><h4>Leadership Camp Highlights</h4><span><i class="fas fa-play"></i> Autoplay</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="tab-section" id="contact">
+      <div class="page-header">
+        <div class="section-label">Hubungi Kami</div>
+        <h1 class="page-title">Kontak & Media Sosial</h1>
+      </div>
+
+      <div class="section-block fade-in">
+        <p class="contact-intro">Tetap terhubung dengan OSALFA melalui berbagai platform media sosial kami. Kami selalu aktif berbagi informasi, kegiatan, dan inspirasi untuk seluruh sivitas SMPI Al-Fakhir.</p>
+        <div class="contact-grid">
+          <a href="mailto:osalfa.smpialfakhir@gmail.com" class="contact-card email">
+            <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+            <div class="cc-body">
+              <h3>Email</h3>
+              <p>osalfa.smpialfakhir@gmail.com</p>
+              <span>Kirim pesan resmi kepada kami</span>
+            </div>
+            <div class="cc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="https://youtube.com/@osalfa_official" target="_blank" class="contact-card youtube">
+            <div class="cc-icon"><i class="fab fa-youtube"></i></div>
+            <div class="cc-body">
+              <h3>YouTube</h3>
+              <p>@osalfa_official</p>
+              <span>Tonton video dokumentasi kegiatan</span>
+            </div>
+            <div class="cc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="https://instagram.com/osalfa_official" target="_blank" class="contact-card instagram">
+            <div class="cc-icon"><i class="fab fa-instagram"></i></div>
+            <div class="cc-body">
+              <h3>Instagram</h3>
+              <p>@osalfa_official</p>
+              <span>Ikuti kegiatan kami di Instagram</span>
+            </div>
+            <div class="cc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="https://tiktok.com/@osalfa_official" target="_blank" class="contact-card tiktok">
+            <div class="cc-icon"><i class="fab fa-tiktok"></i></div>
+            <div class="cc-body">
+              <h3>TikTok</h3>
+              <p>@osalfa_official</p>
+              <span>Konten kreatif sehari-hari di TikTok</span>
+            </div>
+            <div class="cc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-block fade-in">
+        <div class="contact-info-box">
+          <h3><i class="fas fa-map-marker-alt"></i> Alamat Sekretariat</h3>
+          <p>SMPI Al-Fakhir, Jl. Al-Fakhir No. 1, Kota — Indonesia</p>
+          <h3><i class="fas fa-clock"></i> Jam Aktif</h3>
+          <p>Senin – Jumat: 07.00 – 15.00 WIB</p>
+          <h3><i class="fas fa-comments"></i> Respons</h3>
+          <p>Kami berusaha merespons setiap pesan dalam 1×24 jam di hari kerja.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span>⬡</span> OSALFA</div>
+      <p>© 2025 OSALFA — OSIS SMPI Al-Fakhir. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="mailto:osalfa.smpialfakhir@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img id="lightboxImg" src="" alt="Galeri" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
